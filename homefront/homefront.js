@@ -6,13 +6,11 @@ profileButton.addEventListener('click', () => {
     dropdownMenu.classList.toggle('show');
 });
 
-// Mock user data and tables
+// Three tables with assigned colors
 const tables = [
     { name: "Beginner's Luck", users: 3, colorClass: "light-purple" },
     { name: "High Rollers", users: 5, colorClass: "light-blue" },
     { name: "Card Sharks", users: 4, colorClass: "light-green" },
-    { name: "Lucky Draws", users: 6, colorClass: "light-yellow" },
-    { name: "Final Table", users: 2, colorClass: "light-red" }
 ];
 
 let currentTable = 0;
