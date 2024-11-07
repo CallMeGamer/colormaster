@@ -91,6 +91,10 @@ body, html {
     gap: 10px;
 }
 
+.table-info {
+    text-align: center; /* Center the text within the table info section */
+}
+
 .arrow-button {
     background-color: #4CAF50;
     color: white;
@@ -122,15 +126,15 @@ body, html {
     background-color: #45A049;
 }
 
-/* Table Colors */
+/* Table Colors - Bolder Shades */
 #tableCard.light-purple {
-    background-color: #EAE2F8;
+    background-color: #D0B3F2;
 }
 
 #tableCard.light-blue {
-    background-color: #B3D8F2;
+    background-color: #A5C9F5;
 }
 
 #tableCard.light-green {
-    background-color: #D4ECD8;
+    background-color: #B8E1B8;
 }
