@@ -31,11 +31,18 @@ body, html {
 .profile-button {
     background: none;
     border: none;
-    font-size: 1em;
+    font-size: 1.2em;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
 }
 
 .dropdown-menu {
@@ -56,10 +63,15 @@ body, html {
 .dropdown-item {
     background: none;
     border: none;
-    padding: 8px;
+    padding: 10px;
     width: 100%;
     text-align: left;
     cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
 }
 
 /* Stats Section */
@@ -80,7 +92,7 @@ body, html {
 
 .arrow-button {
     background: none;
-    font-size: 1.5em;
+    font-size: 1.8em;
     cursor: pointer;
     border: none;
 }
@@ -88,9 +100,36 @@ body, html {
 .action-button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px;
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 5px;
+    font-size: 1em;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+.action-button:hover {
+    transform: scale(1.05);
+    background-color: #45A049;
+}
+
+/* Table Colors */
+#tableCard.light-purple {
+    background-color: #EAE2F8;
+}
+
+#tableCard.light-blue {
+    background-color: #B3D8F2;
+}
+
+#tableCard.light-green {
+    background-color: #D4ECD8;
+}
+
+#tableCard.light-yellow {
+    background-color: #FFF6C3;
+}
+
+#tableCard.light-red {
+    background-color: #F8D7DA;
 }
