@@ -14,7 +14,7 @@
             <div class="profile">
                 <button id="profileButton" class="profile-button">
                     <img src="user-icon.png" alt="User Icon" class="user-icon">
-                    <span>John Doe</span>
+                    <span id="username">Not Signed In</span>
                 </button>
                 <div id="dropdownMenu" class="dropdown-menu hidden">
                     <button onclick="signOut()" class="dropdown-item">Sign Out</button>
@@ -34,7 +34,7 @@
 
         <!-- Table Selection Section -->
         <section class="table-selection">
-            <div class="card">
+            <div class="card" id="tableCard">
                 <h2>Table Selection</h2>
                 <div class="table-controls">
                     <button onclick="changeTable(-1)" class="arrow-button">&lt;</button>
