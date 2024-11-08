@@ -3,51 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ColorMaster - Table 1</title>
+    <title>ColorMaster - Game Table</title>
     <link rel="stylesheet" href="table.css">
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <h1 class="title">ColorMaster</h1>
-            <div class="profile">
-                <button id="profileButton" class="profile-button">
-                    <img src="../assets/user-icon.png" alt="User Icon" class="user-icon">
-                    <span id="username">John Doe</span>
-                </button>
-                <div id="dropdownMenu" class="dropdown-menu hidden">
-                    <button onclick="signOut()" class="dropdown-item">Sign Out</button>
-                    <button onclick="requestChips()" class="dropdown-item">Request More Chips</button>
-                </div>
-            </div>
-        </header>
+        <!-- Game Title -->
+        <h1 class="title">Game Table</h1>
 
-        <!-- Stats Section -->
-        <section class="stats">
-            <div class="card">
-                <h2>Your Stats</h2>
-                <p class="chip-balance">Chip Balance: <span id="chipBalance">5000</span></p>
-                <p class="current-time">Current Time: <span id="currentTime"></span></p>
-            </div>
-        </section>
-
-        <!-- Table Interaction Section -->
-        <section class="table-interaction">
-            <div class="card" id="tableCard">
-                <h2>Table Selection</h2>
-                <div class="table-controls">
-                    <button onclick="changeTable(-1)" class="arrow-button">&lt;</button>
-                    <div class="table-info">
-                        <h3 id="tableName">Beginner's Luck</h3>
-                        <p id="activeUsers">Active Users: 3</p>
-                        <button onclick="spectateTable()" class="action-button">Spectate</button>
-                        <button onclick="joinTable()" class="action-button">Join</button>
-                    </div>
-                    <button onclick="changeTable(1)" class="arrow-button">&gt;</button>
+        <!-- Opponents' Cards -->
+        <div class="opponents">
+            <div id="playerAlice" class="player-card">
+                <div class="player-info">
+                    <span class="player-name">Alice</span>
+                    <span class="player-points">Points: 3</span>
                 </div>
+                <div class="cards" id="cardsAlice"></div>
+                <p id="turnAlice" class="turn-indicator hidden">Current Turn</p>
             </div>
-        </section>
+            <div id="playerBob" class="player-card">
+                <div class="player-info">
+                    <span class="player-name">Bob</span>
+                    <span class="player-points">Points: 4</span>
+                </div>
+                <div class="cards" id="cardsBob"></div>
+                <p id="turnBob" class="turn-indicator hidden">Current Turn</p>
+            </div>
+            <div id="playerCharlie" class="player-card">
+                <div class="player-info">
+                    <span class="player-name">Charlie</span>
+                    <span class="player-points">Points: 2</span>
+                </div>
+                <div class="cards" id="cardsCharlie"></div>
+                <p id="turnCharlie" class="turn-indicator hidden">Current Turn</p>
+            </div>
+        </div>
+
+        <!-- Center Card Area -->
+        <div class="center-card-container">
+            <button id="drawCardButton" class="center-card-button">
+                <div id="centerCard" class="card"></div>
+            </button>
+        </div>
+
+        <!-- Player's Cards -->
+        <div class="player">
+            <div class="player-info">
+                <span class="player-name">You</span>
+                <span class="player-points">Points: <span id="yourPoints">5</span></span>
+            </div>
+            <div class="cards" id="yourCards"></div>
+            <p id="yourTurnIndicator" class="turn-indicator">Your Turn</p>
+        </div>
+
+        <!-- Play Button -->
+        <div class="play-button-container">
+            <button id="playCardButton" class="play-button" disabled>Play Selected Card</button>
+            <span id="feedback" class="feedback hidden"></span>
+        </div>
     </div>
 
     <script src="table.js"></script>
