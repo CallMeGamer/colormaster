@@ -10,118 +10,118 @@ body, html {
     max-width: 800px;
     margin: auto;
     padding: 20px;
-}
-
-/* Header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.title {
-    font-size: 2em;
-    font-weight: bold;
-}
-
-.profile {
-    position: relative;
-}
-
-.profile-button {
-    background: none;
-    border: none;
-    font-size: 1.2em;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.user-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #ccc;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 8px;
-    display: none;
-}
-
-.dropdown-menu.show {
-    display: block;
-}
-
-.dropdown-item {
-    background: none;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.dropdown-item:hover {
-    background-color: #f0f0f0;
-}
-
-/* Stats Section */
-.stats .card, .table-interaction .card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-/* Table Controls */
-.table-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.table-info {
     text-align: center;
 }
 
-.arrow-button {
-    background-color: #4CAF50;
-    color: white;
+/* Title */
+.title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Opponents' Cards */
+.opponents {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.player-card {
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.player-info {
+    font-weight: bold;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.card {
+    width: 40px;
+    height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+/* Center Card */
+.center-card-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.center-card-button {
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.center-card-button .card {
+    width: 80px;
+    height: 120px;
+}
+
+/* Player's Cards */
+.player {
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.turn-indicator {
+    color: blue;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Play Button */
+.play-button-container {
+    margin-top: 20px;
+}
+
+.play-button {
+    padding: 10px 20px;
     font-size: 1.2em;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.1s;
-}
-
-.arrow-button:hover {
-    transform: scale(1.05);
-}
-
-.action-button {
     background-color: #4CAF50;
     color: white;
-    padding: 14px 28px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em;
-    transition: transform 0.1s, background-color 0.2s;
+    transition: transform 0.2s;
 }
 
-.action-button:hover {
+.play-button:disabled {
+    background-color: #cccccc;
+}
+
+.play-button:hover:not(:disabled) {
     transform: scale(1.05);
-    background-color: #45A049;
+}
+
+/* Feedback */
+.feedback {
+    font-size: 1.2em;
+    margin-left: 10px;
 }
