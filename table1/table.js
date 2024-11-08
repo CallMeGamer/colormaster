@@ -1,53 +1,70 @@
-// Profile dropdown toggle
-const profileButton = document.getElementById('profileButton');
-const dropdownMenu = document.getElementById('dropdownMenu');
+const colors = ["red", "blue", "green", "yellow", "purple", "orange", "pink"];
+let selectedCard = null;
+let centerCardIndex = Math.floor(Math.random() * colors.length);
 
-profileButton.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('show');
-});
-
-// Mock user data and tables for Table 1
-const tables = [
-    { name: "Beginner's Luck", users: 3 },
-    { name: "High Rollers", users: 5 },
-    { name: "Card Sharks", users: 4 },
+const players = [
+    { name: "You", points: 5, isTurn: true },
+    { name: "Alice", points: 3, isTurn: false },
+    { name: "Bob", points: 4, isTurn: false },
+    { name: "Charlie", points: 2, isTurn: false },
 ];
 
-let currentTable = 0;
-
-// Update table info
-function updateTableInfo() {
-    document.getElementById('tableName').innerText = tables[currentTable].name;
-    document.getElementById('activeUsers').innerText = `Active Users: ${tables[currentTable].users}`;
+// Update center card color
+function updateCenterCard() {
+    const centerCard = document.getElementById("centerCard");
+    centerCard.style.backgroundColor = colors[centerCardIndex];
 }
 
-// Change table when arrows are clicked
-function changeTable(direction) {
-    currentTable = (currentTable + direction + tables.length) % tables.length;
-    updateTableInfo();
+// Render player cards
+function renderCards(player, isCurrentPlayer, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+    colors.forEach((color, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.style.backgroundColor = color;
+        if (isCurrentPlayer) {
+            card.onclick = () => handleCardSelect(index);
+        }
+        container.appendChild(card);
+    });
 }
 
-// Actions
-function spectateTable() {
-    alert(`Spectating ${tables[currentTable].name}`);
+// Handle card selection
+function handleCardSelect(index) {
+    selectedCard = selectedCard === index ? null : index;
+    document.getElementById("playCardButton").disabled = selectedCard === null;
 }
 
-function joinTable() {
-    alert(`Joined ${tables[currentTable].name}`);
+// Draw a new center card
+function handleDrawCard() {
+    centerCardIndex = Math.floor(Math.random() * colors.length);
+    selectedCard = null;
+    updateCenterCard();
+    document.getElementById("playCardButton").disabled = true;
 }
 
-function signOut() {
-    alert("Signing out...");
+// Play selected card and display feedback
+function playCard() {
+    if (selectedCard !== null) {
+        const feedback = document.getElementById("feedback");
+        const match = colors[selectedCard] === colors[centerCardIndex];
+        feedback.innerText = match ? "+1" : "-1";
+        feedback.classList.remove("hidden");
+        feedback.style.color = match ? "green" : "red";
+    }
 }
 
-function requestChips() {
-    alert("Requesting more chips...");
+// Initialize
+function initializeGame() {
+    updateCenterCard();
+    renderCards(players[0], true, "yourCards");
+    renderCards(players[1], false, "cardsAlice");
+    renderCards(players[2], false, "cardsBob");
+    renderCards(players[3], false, "cardsCharlie");
 }
 
-// Update current time every second
-setInterval(() => {
-    document.getElementById('currentTime').innerText = new Date().toLocaleTimeString();
-}, 1000);
+document.getElementById("playCardButton").onclick = playCard;
+document.getElementById("drawCardButton").onclick = handleDrawCard;
 
-// Initialize table info
-updateTableInfo();
+initializeGame();
